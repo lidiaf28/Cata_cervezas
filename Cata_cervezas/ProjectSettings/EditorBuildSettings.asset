@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PROYECT/Scenes/MainScene.unity
+    path: Assets/PROYECT/Scenes/Escena360.unity
+    guid: f7d067e2882dc2d4a8086cfc07d5add3
+  - enabled: 1
+    path: Assets/PROYECT/Scenes/EscenaBasicWhite.unity
     guid: 4e0552cf4b5892d42b5762333f66f7d8
+  - enabled: 1
+    path: Assets/PROYECT/Scenes/EscenaEnCamara.unity
+    guid: 20de0eae96f41dd4abf92dfb52a696a0
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 55daccc09a3b69647bbab145b54a3ab3
