@@ -1,0 +1,13 @@
+Panelistas;Cervezas
+1;['negro', 'naranja', 'verde', 'gris', 'amarillo']
+2;['negro', 'verde', 'amarillo', 'gris', 'naranja']
+3;['verde', 'naranja', 'amarillo', 'gris', 'negro']
+4;['gris', 'amarillo', 'naranja', 'verde', 'negro']
+5;['gris', 'amarillo', 'naranja', 'negro', 'verde']
+6;['verde', 'gris', 'amarillo', 'negro', 'naranja']
+7;['amarillo', 'negro', 'naranja', 'verde', 'gris']
+8;['naranja', 'verde', 'negro', 'amarillo', 'gris']
+9;['verde', 'negro', 'naranja', 'gris', 'amarillo']
+10;['gris', 'amarillo', 'negro', 'naranja', 'verde']
+11;['gris', 'negro', 'verde', 'amarillo', 'naranja']
+12;['amarillo', 'gris', 'negro', 'naranja', 'verde']
