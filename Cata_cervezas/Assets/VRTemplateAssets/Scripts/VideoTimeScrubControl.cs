@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -41,6 +41,9 @@ namespace Unity.VRTemplate
         [Tooltip("If checked, the slider will fade off after a few seconds. If unchecked, the slider will remain on.")]
         bool m_HideSliderAfterFewSeconds;
 
+        [SerializeField]
+        UnityEngine.UI.Button m_TargetButton; //mi codigo
+
         bool m_IsDragging;
         bool m_VideoIsPlaying;
         bool m_VideoJumpPending;
@@ -50,6 +53,7 @@ namespace Unity.VRTemplate
         void Start()
         {
             m_VideoPlayer = GetComponent<VideoPlayer>();
+            m_VideoPlayer.loopPointReached += OnVideoFinished; //mi codigo
             if (!m_VideoPlayer.playOnAwake)
             {
                 //m_VideoPlayer.playOnAwake = true; // Set play on awake for next enable.
@@ -65,6 +69,19 @@ namespace Unity.VRTemplate
                 m_ButtonPlayOrPause.SetActive(false);
         }
 
+        void OnVideoFinished(VideoPlayer vp)
+        {
+            Debug.Log("FIN DISPARADO");
+
+            if (m_TargetButton != null)
+            {
+                m_TargetButton.interactable = true;
+            }
+            else
+            {
+                Debug.LogError("BOTÓN NO ASIGNADO");
+            }
+        }
         void OnEnable()
         {
             if (m_VideoPlayer != null)
