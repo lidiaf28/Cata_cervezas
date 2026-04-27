@@ -222,12 +222,14 @@ public class ProductOrderLoader : MonoBehaviour
 
         if (!Directory.Exists(path))
             Directory.CreateDirectory(path);
-
-        string filePath = Path.Combine(path, "Resultados_" + sujeto + ".csv");
+        string timestamp = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
+        string nombreArchivo = timestamp + "_Resultados_" + sujeto + ".csv";
+        //string filePath = Path.Combine(path, timestamp + "_Resultados_" + sujeto + ".csv"); para guardar en local del pc
+        string filePath = Path.Combine(Application.persistentDataPath, nombreArchivo); //para guardar en local de gafas (/Android/data/tu.paquete.app/files/)
 
         List<string> lineas = new List<string>();
 
-        lineas.Add("panelista;muestra;slider1;slider2");
+        lineas.Add("panelista;muestra;sliderColor;sliderTurbidez");
 
         foreach (var d in datos)
         {
