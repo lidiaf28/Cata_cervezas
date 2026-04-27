@@ -71,7 +71,7 @@ namespace Unity.VRTemplate
 
         void OnVideoFinished(VideoPlayer vp)
         {
-            Debug.Log("FIN DISPARADO");
+            //Debug.Log("FIN DISPARADO");
 
             if (m_TargetButton != null)
             {

@@ -189,7 +189,7 @@ public class ProductOrderLoader : MonoBehaviour
         if (indiceActualInteractable >= ordenActual.Length)
         {
             Debug.Log("Fin del experimento");
-
+            GuardarCSVFinal();
             DesactivarProductos();
 
             if (VentanaFinal != null)
