@@ -24,6 +24,8 @@ public class ProductOrderLoader : MonoBehaviour
     [Header("Ventana final")]
     public GameObject VentanaFinal;
 
+    public DebugVR debugVR;
+
     private Dictionary<string, GameObject> mapaMuestras;
     private Dictionary<int, string[]> ordenPorSujeto = new Dictionary<int, string[]>();
     private Dictionary<string, MuestraUI> mapaUI;
@@ -192,8 +194,13 @@ public class ProductOrderLoader : MonoBehaviour
 
     public void InteractableSiguienteProducto() //Llamar en onclick del ultimo boton de cada muestra
     {
+        debugVR.Log("CLICK");
+
         GuardarDatosMuestraActual();
         indiceActualInteractable++;
+
+        debugVR.Log("Indice: " + indiceActualInteractable);
+        debugVR.Log("Total: " + ordenActual.Length);
 
         if (indiceActualInteractable >= ordenActual.Length)
         {
@@ -202,7 +209,15 @@ public class ProductOrderLoader : MonoBehaviour
             DesactivarProductos();
 
             if (VentanaFinal != null)
+            {
+                debugVR.Log("ACTIVO VENTANA FINAL");
                 VentanaFinal.SetActive(true);
+
+            }
+            else
+            {
+                debugVR.Log("ERROR: VentanaFinal NULL");
+            }
 
             return;
         }
@@ -227,10 +242,10 @@ public class ProductOrderLoader : MonoBehaviour
     }
     void GuardarCSVFinal()
     {
-        string path = Path.Combine(Application.dataPath, "PROYECT/Data");
+        //string path = Path.Combine(Application.dataPath, "PROYECT/Data");
 
-        if (!Directory.Exists(path))
-            Directory.CreateDirectory(path);
+        //if (!Directory.Exists(path))
+           // Directory.CreateDirectory(path);
         string timestamp = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
         string nombreArchivo = timestamp + "_Resultados_" + sujeto + ".csv";
         //string filePath = Path.Combine(path, timestamp + "_Resultados_" + sujeto + ".csv"); para guardar en local del pc
