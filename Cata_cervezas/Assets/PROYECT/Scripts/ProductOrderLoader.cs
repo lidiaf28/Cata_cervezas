@@ -105,15 +105,24 @@ public class ProductOrderLoader : MonoBehaviour
     }
     void CargarCSV()
     {
-        string filePath = Path.Combine(Application.dataPath, "PROYECT/Scripts", csvFileName);
+        //string filePath = Path.Combine(Application.dataPath, "PROYECT/Scripts", csvFileName);
 
-        if (!File.Exists(filePath))
+        //if (!File.Exists(filePath)){
+        //Debug.LogError("[ProductOrderLoader] NO se encontró el CSV en: " + filePath);
+        //return;
+        //}
+
+        //string[] lines = File.ReadAllLines(filePath);
+
+        TextAsset csv = Resources.Load<TextAsset>("Panelistas_cerveza"); //“Todo lo que esté en Resources viaja dentro de la APK”
+
+        if (csv == null)
         {
-            Debug.LogError("[ProductOrderLoader] NO se encontró el CSV en: " + filePath);
+            Debug.LogError("[ProductOrderLoader] No se pudo cargar el CSV desde Resources");
             return;
         }
 
-        string[] lines = File.ReadAllLines(filePath);
+        string[] lines = csv.text.Split('\n');
 
         for (int i = 1; i < lines.Length; i++) // saltamos header
         {
